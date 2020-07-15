@@ -1,0 +1,97 @@
+
+
+
+
+
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
+  *{
+    margin:0;
+    padding:0;
+  }
+  html,
+  body{
+     height: 100%;
+     padding: 0;
+     scroll-behavior: smooth;
+     background: #000000;
+     color: #999;
+     font-family: 'Open Sans', sans-serif;
+     font-weight: 300;
+  }
+  h1{
+    line-height: 1.2;
+    color: #ccc;
+  }
+  h2{
+    line-height: 1.25;
+    font-weight: 300;
+  }
+  h3{
+    line-height: 1.25;
+    font-weight: 300;
+  }
+  svg{
+    padding: 0px;
+  }
+  img {
+    padding: 20px;
+    width: 80%;
+  }
+  text{
+    line-height: 1.25;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  strong{
+    font-weight: 600;
+    color: #ccc;
+  }
+  i{
+    font-weight: 300;
+    color: #888;
+  }
+  em{
+   font-weight: 300;
+  }
+  p{
+    font-weight: 600;
+    color: #777;
+  }
+  #graphic {
+    max-width:  1440px;
+    width: 100%;
+    position:   relative; 
+    height:  100%;
+    position:  relative; 
+  }
+  #viz {
+    max-width:  1440px;
+    width: 760px;
+    padding: 20px;
+    height:  100%;
+  }
+  .container {
+    height: 100%;
+    max-width: 440px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    height: 100%;
+    line-height: 1.5;
+    left: 60%;
+  }
+  .container div {
+    height: 100%;
+    display: block;
+    padding: 30% 30px;
+  }
+  .fixed {
+    position: fixed;
+    max-width: 1440px;
+    width: 60%;
+    height: 100%;
+    top: 50px;
+    left: 10px;
+  }
+  </style>

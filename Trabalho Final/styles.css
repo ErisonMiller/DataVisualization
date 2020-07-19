@@ -8,15 +8,24 @@
     margin:0;
     padding:0;
   }
+
+  html{
+
+     min-width: 400px;
+  }
+
   html,
   body{
+     min-width: 400px;
      height: 100%;
-     padding: 0;
+     width: screen.width;
+     padding: 0px;
      scroll-behavior: smooth;
      background: #000000;
      color: #999;
      font-family: 'Open Sans', sans-serif;
      font-weight: 300;
+     box-sizing: border-box;
   }
   h1{
     line-height: 1.2;
@@ -58,40 +67,40 @@
     color: #777;
   }
   #graphic {
-    max-width:  1440px;
-    width: 100%;
+    max-width:  2440px;
+    width: 96%;
     position:   relative; 
     height:  100%;
-    position:  relative; 
+    position:  relative;
+    right: 2%;
+    left: 2%;
   }
   #viz {
     max-width:  1440px;
-    width: 760px;
-    padding: 20px;
+    width: 100%;
+    padding: 0px;
     height:  100%;
   }
   .container {
     height: 100%;
-    max-width: 440px;
-    width: 100%;
+    max-width: 30%;
+    width: 40%;
     margin: 0;
     padding: 0;
     position: absolute;
     height: 100%;
     line-height: 1.5;
-    left: 60%;
+    right: 7.5%;
   }
   .container div {
-    height: 100%;
     display: block;
-    padding: 30% 30px;
+    padding: 50% 0px 70% 0px;
   }
   .fixed {
     position: fixed;
-    max-width: 1440px;
+    max-width: 2440px;
     width: 60%;
+    height: 90%;
     height: 100%;
-    top: 50px;
-    left: 10px;
   }
   </style>

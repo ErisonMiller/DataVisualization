@@ -1,6 +1,6 @@
 let colorList = ["#fff"];
 
-let city = "Paris" 
+let city = "Fortaleza" 
 
 let mapPromise = d3.json("https://nominatim.openstreetmap.org/search.php?q="+city+"&polygon_geojson=1&format=json");
 
@@ -10,10 +10,10 @@ mapPromise.then(function(success) {
     console.log("acabei")
 });
 
-const height2 = 500;
-const width2 = 760;
+const height2 = screen.height*0.9;
+const width2 = screen.width*0.6;
 
-
+console.log(width2)
 
 let dataX = [100, 
   115.45084971874736, 
@@ -58,7 +58,7 @@ xScale2 = d3.scalePoint()
   .domain(labels)
   .range([0, width2])
 
-xScale2.padding(1);
+xScale2.padding(0.5);
 
 
 dataX = dataX.map(d => {  
@@ -203,7 +203,7 @@ let Update = () =>{
     .domain(labels)
     .range([0, width2])
 
-  xScale2.padding(1);
+  xScale2.padding(0.75).align(0.5);
 
 
   nodes = svg.selectAll('circle').data(data2)
@@ -346,7 +346,8 @@ let Update2 = () =>{
     .domain(labels)
     .range([0, width2])
 
-  xScale2.padding(2);
+  
+  xScale2.padding(0.75).align(0.5);
 
 
 
@@ -692,16 +693,16 @@ let grid10 = () =>{
   Update3();
 }
 
-new scroll('div1', '75%', grid1, grid0);
-new scroll('div2', '75%', grid2, grid1);
-new scroll('div3', '75%', grid3, grid2);
-new scroll('div4', '75%', grid4, grid3);
-new scroll('div5', '75%', grid5, grid4);
-new scroll('div6', '75%', grid6, grid5);
-new scroll('div7', '75%', grid7, grid6);
-new scroll('div8', '75%', grid8, grid7);
-new scroll('div9', '75%', grid9, grid8);
-new scroll('div10', '75%', grid10, grid9);
+new scroll('div1', '50%', grid1, grid0);
+new scroll('div2', '50%', grid2, grid1);
+new scroll('div3', '50%', grid3, grid2);
+new scroll('div4', '50%', grid4, grid3);
+new scroll('div5', '50%', grid5, grid4);
+new scroll('div6', '50%', grid6, grid5);
+new scroll('div7', '50%', grid7, grid6);
+new scroll('div8', '50%', grid8, grid7);
+new scroll('div9', '50%', grid9, grid8);
+new scroll('div10','50%', grid10, grid9);
 
 
 //5px == 0.368km

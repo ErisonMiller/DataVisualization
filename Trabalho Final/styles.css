@@ -66,6 +66,9 @@
     font-weight: 600;
     color: #777;
   }
+  a{
+    color: #ccc;
+  }
   #graphic {
     max-width:  2440px;
     width: 96%;

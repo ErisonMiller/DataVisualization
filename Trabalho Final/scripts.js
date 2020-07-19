@@ -1,6 +1,6 @@
 let colorList = ["#fff"];
 
-let city = "Fortaleza" 
+let city = "Paris" 
 
 let mapPromise = d3.json("https://nominatim.openstreetmap.org/search.php?q="+city+"&polygon_geojson=1&format=json");
 

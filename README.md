@@ -4,4 +4,4 @@
 
 ## WW2 Deaths as 100 people.
 
-![original](https://github.com/ErisonMiller/DataVisualization/tree/master/Trabalho%20Final/preview.png "Preview")
+![original](https://github.com/ErisonMiller/DataVisualization/blob/master/Trabalho%20Final/preview.png "Preview")

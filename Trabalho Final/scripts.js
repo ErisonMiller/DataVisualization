@@ -6,32 +6,24 @@ let mapPromise = d3.json("https://nominatim.openstreetmap.org/search.php?q="+cit
 
 let map0;
 mapPromise.then(function(success) {
-    map0 = success;
-    console.log("acabei")
+    map0 = success.filter(function (entry) {
+      return entry.class === 'boundary';
+    })[0];
+
+    console.log("success loading map");
 });
 
 const height2 = screen.height*0.9;
 const width2 = screen.width*0.6;
 
-console.log(width2)
+let dataX = [100, 115.45084971874736, 129.38926261462365, 140.45084971874738, 147.55282581475768, 150, 147.55282581475768, 140.45084971874738, 129.38926261462365, 115.45084971874738, 100, 84.54915028125264, 70.61073738537635, 59.549150281252636, 52.447174185242325, 50, 52.44717418524232, 59.54915028125262, 70.61073738537632, 84.54915028125262, 100, 100, 100, 125.36765284906576, 112.36765284906576, 86.36765284906576, 72.36765284906576]
 
-let dataX = [100, 
-  115.45084971874736, 
-  129.38926261462365, 
-  140.45084971874738, 147.55282581475768, 150, 147.55282581475768, 140.45084971874738, 129.38926261462365, 115.45084971874738, 100, 84.54915028125264, 70.61073738537635, 59.549150281252636, 52.447174185242325, 50, 52.44717418524232, 59.54915028125262, 70.61073738537632, 84.54915028125262, 100, 100, 100, 125.36765284906576, 112.36765284906576, 86.36765284906576, 72.36765284906576]
-
-let dataY = [150, 
-  147.55282581475768, 
-  140.45084971874738, 129.38926261462365, 115.45084971874738, 100, 84.54915028125264, 70.61073738537635, 59.549150281252636, 52.447174185242325, 50, 52.44717418524232, 59.54915028125263, 70.61073738537634, 84.54915028125262, 99.99999999999999, 115.45084971874736, 129.38926261462365, 140.45084971874735, 147.55282581475768, 100, 116.66666666666667, 133.33333333333334, 79.87592761776506, 89.87592761776506, 88.87592761776506, 79.87592761776506]
+let dataY = [150, 147.55282581475768, 140.45084971874738, 129.38926261462365, 115.45084971874738, 100, 84.54915028125264, 70.61073738537635, 59.549150281252636, 52.447174185242325, 50, 52.44717418524232, 59.54915028125263, 70.61073738537634, 84.54915028125262, 99.99999999999999, 115.45084971874736, 129.38926261462365, 140.45084971874735, 147.55282581475768, 100, 116.66666666666667, 133.33333333333334, 79.87592761776506, 89.87592761776506, 88.87592761776506, 79.87592761776506]
 
 
 
-let filldata = function sla() {
-    var data0 = new Array(100);
-    for (var i = 0; i < 100; i++) {
-        data0[i] = i;
-    }
-    return data0;
+let filldata = function () {
+    return [...Array(100).keys()];
 }
 
 let labels = ["85 million lives taken by the war"];
@@ -574,12 +566,12 @@ function toRad(Value)
 }
 
 let DrawMap = () =>{  
-  const centerY = (map0[0].boundingbox[0] - map0[0].boundingbox[1])*0.5;
-  const centerX = (map0[0].boundingbox[2] - map0[0].boundingbox[3])*0.5
+  const centerY = (map0.boundingbox[0] - map0.boundingbox[1])*0.5;
+  const centerX = (map0.boundingbox[2] - map0.boundingbox[3])*0.5
   let sla = (centerY)/(centerX);
 
-  const distKmX = calcCrow(map0[0].boundingbox[2], map0[0].boundingbox[0], map0[0].boundingbox[3], map0[0].boundingbox[0]);
-  const distKmY = calcCrow(map0[0].boundingbox[3], map0[0].boundingbox[1], map0[0].boundingbox[3], map0[0].boundingbox[0]);
+  const distKmX = calcCrow(map0.boundingbox[2], map0.boundingbox[0], map0.boundingbox[3], map0.boundingbox[0]);
+  const distKmY = calcCrow(map0.boundingbox[3], map0.boundingbox[1], map0.boundingbox[3], map0.boundingbox[0]);
 
   const pixSizenInKm = (0.73561/5.0);
   const distPixX = distKmX/pixSizenInKm;
@@ -589,11 +581,11 @@ let DrawMap = () =>{
   const ys = d3.scaleLinear().range([distPixY, 0]);
   
   
-  ys.domain([map0[0].boundingbox[0], map0[0].boundingbox[1]]);
-  xs.domain([map0[0].boundingbox[2], map0[0].boundingbox[3]]);
+  ys.domain([map0.boundingbox[0], map0.boundingbox[1]]);
+  xs.domain([map0.boundingbox[2], map0.boundingbox[3]]);
 
   svg.selectAll("polygon")
-    .data(map0[0].geojson.coordinates)
+    .data(map0.geojson.coordinates)
   .enter().append("polygon")
     .attr("fill", "#00F5")
     .attr("stroke-width", 2)
